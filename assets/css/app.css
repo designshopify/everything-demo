@@ -266,10 +266,11 @@ header .top-bar{
 .demoTheme-layout ul.filter-select li a{
 	display: inline-block;
     margin: 5px;
-    padding: 5px 20px;
+    padding: 5px 15px;
     color: #000;
     border: 1px solid #000;
     transition: all .3s ease;	
+    font-size: 12px;
 }
 .demoTheme-layout ul.filter-select li a:hover, .demoTheme-layout ul.filter-select li a.active{
 	background: linear-gradient(to right, rgb(173, 120, 208), rgb(214, 45, 98));
@@ -957,7 +958,6 @@ body{ overflow-x: hidden; }
 		padding: 0;
 	}
 	.demoTheme-layout ul.filter-select li a{
-		font-size: 14px;
 		margin: 3px;
 		padding: 3px 10px;
 	}

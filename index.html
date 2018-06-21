@@ -34,7 +34,7 @@
     <header class="page-header">
 		<div class="grid-container">
 			<div class="introduction-top" style="background-image: url(assets/img/intro.jpg);">
-				<div class="caption">
+				<div class="caption not-animated" data-animate="flipInX" data-delay="1000">
 					<div class="logo"><img src="assets/img/logo.png" alt="Everything Logo" /></div>
 					<div class="text"><img src="assets/img/logo-animation.gif" alt="Everything Animation Logo" /></div>
 					<div class="description"><h1 class="page-heading">Welcome to Multi Stores Shopify Theme</h1></div>
@@ -76,29 +76,30 @@
 							<li><a href="#" data-style="garden">Garden</a></li>
 							<li><a href="#" data-style="watches">Watches</a></li>
 							<li><a href="#" data-style="sport">Sport</a></li>
-							<li><a href="#" data-style="jewelry">Jewelry</a></li>
+							<li><a href="#" data-style="jewelry">Jewelry</a></li>							
 							<li><a href="#" data-style="lingerie">Lingerie</a></li>
 							<li><a href="#" data-style="glasses">Glasses</a></li>
-							<li><a href="#" data-style="electronics">Electronics</a></li>
-							<li><a href="#" data-style="holidays">Holidays</a></li>
-							<li><a href="#" data-style="flower">flower</a></li>
-							<li><a href="#" data-style="gift">Gift</a></li>
-							<li><a href="#" data-style="game">game</a></li>
-							<li><a href="#" data-style="healthcare">healthcare</a></li>
-							<li><a href="#" data-style="foods">foods</a></li>
-							<li><a href="#" data-style="bag">bag</a></li>
-							<li><a href="#" data-style="bicycle">bicycle</a></li>
-							<li><a href="#" data-style="pets">pets</a></li>
-							<li><a href="#" data-style="swimwear">swimwear</a></li>
-							<li><a href="#" data-style="supermarket">supermarket</a></li>
-							<li><a href="#" data-style="parallax">parallax</a></li>
-							<li><a href="#" data-style="instagram">instagram</a></li>
-							<li><a href="#" data-style="kitchen">kitchen</a></li>
-							<li><a href="#" data-style="organic">organic</a></li>							
-							<li><a href="#" data-style="travel">travel</a></li>
-							<li><a href="#" data-style="car">car</a></li>
-							<li><a href="#" data-style="handmade">handmade</a></li>
-							<li><a href="#" data-style="wine">wine</a></li>
+							<li class="more-item hide"><a href="#" data-style="electronics">Electronics</a></li>
+							<li class="more-item hide"><a href="#" data-style="holidays">Holidays</a></li>
+							<li class="more-item hide"><a href="#" data-style="flower">flower</a></li>
+							<li class="more-item hide"><a href="#" data-style="gift">Gift</a></li>
+							<li class="more-item hide"><a href="#" data-style="game">game</a></li>
+							<li class="more-item hide"><a href="#" data-style="healthcare">healthcare</a></li>
+							<li class="more-item hide"><a href="#" data-style="foods">foods</a></li>
+							<li class="more-item hide"><a href="#" data-style="bag">bag</a></li>
+							<li class="more-item hide"><a href="#" data-style="bicycle">bicycle</a></li>
+							<li class="more-item hide"><a href="#" data-style="pets">pets</a></li>
+							<li class="more-item hide"><a href="#" data-style="swimwear">swimwear</a></li>
+							<li class="more-item hide"><a href="#" data-style="supermarket">supermarket</a></li>
+							<li class="more-item hide"><a href="#" data-style="parallax">parallax</a></li>
+							<li class="more-item hide"><a href="#" data-style="instagram">instagram</a></li>
+							<li class="more-item hide"><a href="#" data-style="kitchen">kitchen</a></li>
+							<li class="more-item hide"><a href="#" data-style="organic">organic</a></li>							
+							<li class="more-item hide"><a href="#" data-style="travel">travel</a></li>
+							<li class="more-item hide"><a href="#" data-style="car">car</a></li>
+							<li class="more-item hide"><a href="#" data-style="handmade">handmade</a></li>
+							<li class="more-item hide"><a href="#" data-style="wine">wine</a></li>
+							<li id="more" class="more"><a href="#">More Filter</a></li>
 						</ul>
 					</div>
 					<div class="demoTheme-content">
@@ -285,7 +286,7 @@
 						<div class="medium-4 cell not-animated demo-preview-item all sectioned christmas holidays gift" data-animate="fadeIn" data-delay="200">
 							<figure>
 								<a class="homeimage" href="http://cs-everything-noel.myshopify.com/" target="_blank"><img data-src="assets/img/layout/Layout_31.jpg" alt="Home 31 - Pokemongo" /></a>								
-								<figcaption><a href="http://cs-everything-noel.myshopify.com/" target="_blank">Home 31 - Pokemongo</a></figcaption>
+								<figcaption><a href="http://cs-everything-noel.myshopify.com/" target="_blank">Home 31 - Noel</a></figcaption>
 							</figure>
 						</div>
 						<div class="medium-4 cell not-animated demo-preview-item all sectioned fashion apparel minimal simple materialdesign" data-animate="fadeIn" data-delay="200">
@@ -712,7 +713,23 @@
 	</main>
 	
 	<script>
+	
+		
 		var myLazyLoad = new LazyLoad();
+		
+		$("#more").click(function() {			
+			if(!$(this).hasClass('less')){
+			  $(this).addClass("less").removeClass('more').html('Less Filter');
+			  $('.more-item').removeClass('hide').addClass('show');
+			}
+			else{
+			  $(this).addClass("more").removeClass('less').html('More Filter');
+			  $('.more-item').removeClass('show').addClass('hide');
+			}
+			return false;
+		});
+		
+		
 		
 		$(".action-scroll").click(function() {
 			var h = $('#demos').offset().top;

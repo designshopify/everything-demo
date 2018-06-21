@@ -34,7 +34,7 @@
     <header class="page-header">
 		<div class="grid-container">
 			<div class="introduction-top" style="background-image: url(assets/img/intro.jpg);">
-				<div class="caption not-animated" data-animate="flipInX" data-delay="1000">
+				<div class="caption not-animated" data-animate="flipInX bounce" data-delay="700">
 					<div class="logo"><img src="assets/img/logo.png" alt="Everything Logo" /></div>
 					<div class="text"><img src="assets/img/logo-animation.gif" alt="Everything Animation Logo" /></div>
 					<div class="description"><h1 class="page-heading">Welcome to Multi Stores Shopify Theme</h1></div>
@@ -47,12 +47,20 @@
     <main class="main-content">
 		<section class="bestUXTheme-layout">
 			<div class="grid-container">
-				<div class="bestUXTheme-inner" style="background-image: url(assets/img/bkg100.jpg);">
+				<div class="bestUXTheme-inner" style="background-image: url(assets/img/bkg.jpg);">
 					<div class="bestUXTheme-content">
 						<div class="caption">							
 							<img class="demo100" src="assets/img/100homes.png" alt="Everything 100+ Home layout" />	
 							<div class="text">With 1 purchase, you will have all 100+ demo options to build the site!<br/>Start creating your <a href="" class="typewrite" data-period="1000" data-type='[ "Shop", "Store", "Site" ]'><span class="wrap"></span></a></div>
 						</div>						
+					</div>
+					<div class="group-item">
+						<img class="item item1 not-animated" data-animate="fadeIn" data-delay="200" src="assets/img/home1.jpg">
+						<img class="item item2 not-animated" data-animate="fadeIn" data-delay="400" src="assets/img/home2.jpg">
+						<img class="item item3 not-animated" data-animate="fadeIn" data-delay="600" src="assets/img/home3.jpg">
+						<img class="item item4 not-animated" data-animate="fadeIn" data-delay="800" src="assets/img/home4.jpg">
+						<img class="item item5 not-animated" data-animate="fadeIn" data-delay="1000" src="assets/img/home5.jpg">
+						<img class="item item6 not-animated" data-animate="fadeIn" data-delay="1200" src="assets/img/home6.jpg">
 					</div>
 					<a href="#demos" class="action-scroll">Check Homepage Demos</a>
 					<div class="power-envato">
@@ -99,7 +107,7 @@
 							<li class="more-item hide"><a href="#" data-style="car">car</a></li>
 							<li class="more-item hide"><a href="#" data-style="handmade">handmade</a></li>
 							<li class="more-item hide"><a href="#" data-style="wine">wine</a></li>
-							<li id="more" class="more"><a href="#">More Filter</a></li>
+							<li id="more" class="more">More ...</li>
 						</ul>
 					</div>
 					<div class="demoTheme-content">
@@ -639,7 +647,7 @@
 					</div>
 					<div class="sectionTheme-content not-animated" data-animate="zoom-in" data-delay="200">
 						<figure>						
-							<img src="assets/img/sections.jpg" alt="Shopify sections">
+							<img data-src="assets/img/section.gif" alt="Shopify sections">
 						</figure>
 					</div>
 					<div class="sectionTheme-features">
@@ -714,30 +722,38 @@
 	
 	<script>
 	
-		
+		//	Lazy Load
 		var myLazyLoad = new LazyLoad();
 		
+		//	Filter More Click
 		$("#more").click(function() {			
 			if(!$(this).hasClass('less')){
-			  $(this).addClass("less").removeClass('more').html('Less Filter');
+			  $(this).addClass("less").removeClass('more').html('Close (X)');
 			  $('.more-item').removeClass('hide').addClass('show');
 			}
 			else{
-			  $(this).addClass("more").removeClass('less').html('More Filter');
+			  $(this).addClass("more").removeClass('less').html('More ...');
 			  $('.more-item').removeClass('show').addClass('hide');
 			}
 			return false;
 		});
 		
-		
-		
-		$(".action-scroll").click(function() {
-			var h = $('#demos').offset().top;
-			console.log(h);
-			$('html, body').animate({scrollTop: h}, 1000);
-			return false;
+		//	Filter Sticky 
+		var start = $('.demoTheme-inner').offset().top, stop;
+		console.log(start);		
+		$(window).scroll(function() {
+			stop = $('.sectionTheme-layout').offset().top - 300;
+			console.log(stop);
+			var scrollTop = $(this).scrollTop();
+			if(scrollTop >= start && scrollTop <= stop ){
+				$('.filter-bar').addClass('sticky');
+			}
+			else {
+				$('.filter-bar').removeClass('sticky');
+			}
 		});
 		
+		//	Filter Click
 		$('ul.filter-select li a').on( "click", function( e ) {
 			e.preventDefault();
 			$('ul.filter-select li a').removeClass("active");
@@ -745,8 +761,22 @@
 			var selected = '.'+$( this ).data( "style" );
 			$('.demo-preview-item').addClass("hide").removeClass("fadeIn animated");
 			$(selected).removeClass("hide").addClass("fadeIn animated");
+			
+			var h = $('#demos').offset().top;
+			console.log(h);
+			$('html, body').animate({scrollTop: h}, 1000);
+			$('.filter-bar').removeClass('sticky');
 		});
 		
+		//	Click and Scroll 
+		$(".action-scroll").click(function() {
+			var h = $('#demos').offset().top;
+			console.log(h);
+			$('html, body').animate({scrollTop: h}, 1000);
+			return false;
+		});
+			
+		//	Animation Text
 		var TxtType = function(el, toRotate, period) {
 			this.toRotate = toRotate;
 			this.el = el;
@@ -796,8 +826,7 @@
 			  if (toRotate) {
 				new TxtType(elements[i], JSON.parse(toRotate), period);
 			  }
-			}
-			// INJECT CSS
+			}			
 			var css = document.createElement("style");
 			css.type = "text/css";
 			css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";

@@ -738,6 +738,18 @@
 			return false;
 		});
 		
+		var start;
+		$(window).scroll(function() {
+			start = $('.demoTheme-inner').offset().top;		
+			var scrollTop = $(this).scrollTop();
+			if(scrollTop >= start ){
+				$('.filter-bar').addClass('sticky');
+			}
+			else {
+				$('.filter-bar').removeClass('sticky');
+			}
+		});
+		
 		//	Filter Click
 		$('ul.filter-select li a').on( "click", function( e ) {
 			e.preventDefault();

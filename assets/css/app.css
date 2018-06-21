@@ -291,25 +291,27 @@ header .top-bar{
 .demoTheme-layout ul.filter-select li a{
 	display: inline-block;
     margin: 5px;
-    padding: 5px 15px;
     color: #000;
-    border: 1px solid #000;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
     transition: all .3s ease;	
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
 }
 .demoTheme-layout ul.filter-select li a:hover, .demoTheme-layout ul.filter-select li a.active{
-	background: linear-gradient(to right, rgb(173, 120, 208), rgb(214, 45, 98));
+	background: #544cff;
 	color: #fff;
-	border: 1px solid #d43067;
 }
 .demoTheme-layout ul.filter-select li#more{
 	display: inline-block;
     margin: 5px;
-    padding: 5px 15px;
     color: #000;
-    border: 1px solid #000;
-    font-size: 12px;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all .3s ease;	
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
     transition: all 300ms ease; 
@@ -322,9 +324,23 @@ header .top-bar{
     animation:         morefilter 2s cubic-bezier(0.6, -0.28, 0.74, 0.05) infinite; /* IE 10+, Fx 29+ */	
 }
 .demoTheme-layout ul.filter-select li#more:hover{
-	background: linear-gradient(to right, rgb(173, 120, 208), rgb(214, 45, 98));
+	background: #544cff;
 	color: #fff;
-	border: 1px solid #d43067;
+}
+.demoTheme-layout .demoTheme-inner{
+	position: relative;
+}
+.demoTheme-layout .demoTheme-inner .filter-bar{
+	position: sticky;
+	top: -1px;
+	z-index: 100;
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+	width: 100vw;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	padding: 5px 0;
 }
 .demoTheme-layout .demoTheme-title > p{
 	font-size: 150px;

@@ -738,21 +738,6 @@
 			return false;
 		});
 		
-		//	Filter Sticky 
-		var start = $('.demoTheme-inner').offset().top, stop;
-		console.log(start);		
-		$(window).scroll(function() {
-			stop = $('.sectionTheme-layout').offset().top - 300;
-			console.log(stop);
-			var scrollTop = $(this).scrollTop();
-			if(scrollTop >= start && scrollTop <= stop ){
-				$('.filter-bar').addClass('sticky');
-			}
-			else {
-				$('.filter-bar').removeClass('sticky');
-			}
-		});
-		
 		//	Filter Click
 		$('ul.filter-select li a').on( "click", function( e ) {
 			e.preventDefault();

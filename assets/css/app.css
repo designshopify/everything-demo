@@ -330,7 +330,7 @@ header .top-bar{
 .demoTheme-layout .demoTheme-inner{
 	position: relative;
 }
-.demoTheme-layout .demoTheme-inner .filter-bar{
+.demoTheme-layout .demoTheme-inner .filter-bar.sticky{
 	position: sticky;
 	top: -1px;
 	z-index: 100;

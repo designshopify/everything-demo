@@ -742,6 +742,8 @@
 		$(window).scroll(function() {
 			start = $('.demoTheme-inner').offset().top;		
 			var scrollTop = $(this).scrollTop();
+			console.log("start="+start);
+			console.log("scrol="+scrollTop);
 			if(scrollTop >= start ){
 				$('.filter-bar').addClass('sticky');
 			}

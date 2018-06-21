@@ -342,6 +342,9 @@ header .top-bar{
 	transform: translateX(-50%);
 	padding: 5px 0;
 }
+.filter-bar.sticky + .fix_sticky {
+    height: 65px;
+}
 .demoTheme-layout .demoTheme-title > p{
 	font-size: 150px;
 	font-weight: bold;
@@ -905,8 +908,6 @@ img{
 body{ overflow-x: hidden; }
 .cross{ text-decoration: line-through; color: #eef7d4; opacity: 0.9; }
 
-
-#kayako-messenger{ left:0 !important; } 
 .hide{ display:none !important; }
 
 .sectionTheme-layout{

@@ -110,6 +110,7 @@
 							<li id="more" class="more">More ...</li>
 						</ul>
 					</div>
+					<div class="fix_sticky"></div>
 					<div class="demoTheme-content">
 						<div class="medium-4 cell not-animated demo-preview-item all fashion apparel luxury fixedsidebar" data-animate="fadeIn" data-delay="200">
 							<figure>
@@ -738,18 +739,21 @@
 			return false;
 		});
 		
-		var start;
+		var start,timer;
 		$(window).scroll(function() {
-			start = $('.demoTheme-inner').offset().top;		
-			var scrollTop = $(this).scrollTop();
-			console.log("start="+start);
-			console.log("scrol="+scrollTop);
-			if(scrollTop >= start ){
-				$('.filter-bar').addClass('sticky');
+			if(timer) {
+				window.clearTimeout(timer);
 			}
-			else {
-				$('.filter-bar').removeClass('sticky');
-			}
+			timer = window.setTimeout(function() {
+				start = $('.demoTheme-inner').offset().top;		
+				var scrollTop = $(this).scrollTop();
+				if(scrollTop >= start ){
+					$('.filter-bar').addClass('sticky');
+				}
+				else {
+					$('.filter-bar').removeClass('sticky');
+				}
+			}, 100);			
 		});
 		
 		//	Filter Click

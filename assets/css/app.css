@@ -376,9 +376,38 @@ header .top-bar{
 	width: 100%;
 }
 .demoTheme-layout .demoTheme-content > div{	
+	position: relative;
 	text-align: center;	
 	margin-bottom: 40px;
 }
+.demoTheme-layout .demoTheme-content > div span{
+	position: absolute;	
+	top: 5px;
+    left: 10%;
+    z-index: 1;
+	font-size: 15px;
+	color: #fff;
+	padding: 10px 20px;
+    border-radius: 20px;
+}
+@media (max-width: 767px){
+	.demoTheme-layout .demoTheme-content > div span{
+		top: -10px;
+		padding: 5px 10px;
+	}
+}
+@media (min-width: 768px) and (max-width: 1199px){
+	.demoTheme-layout .demoTheme-content > div span{
+		top: -20px;
+	}
+}
+.demoTheme-layout .demoTheme-content > div span.new{
+    background: #544cff;
+}
+.demoTheme-layout .demoTheme-content > div span.coming{
+    background: #ff2b2b;
+}
+
 .demoTheme-layout .demoTheme-content .scrollingImage{
 	background-position: center top;
 	background-repeat: no-repeat;
